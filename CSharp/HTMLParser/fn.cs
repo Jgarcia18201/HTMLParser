@@ -21,17 +21,17 @@ namespace fn
     {
         public static void AssignStrings(System.Collections.Generic.List<string> ret_list, object ur_obj)
         {
-            var prop_list = new System.Collections.Generic.List<string>();
+            var desired_name_list = new System.Collections.Generic.List<string>();
 
             foreach (var property_def in ret_list.GetType().GetProperties())
             {
-                prop_list.Add(property_def.Name);
+                desired_name_list.Add(property_def.Name);
             }
 
             foreach (var property_def in ur_obj.GetType().GetProperties())
             {
                 foreach (var desired_name in 
-                    (from desired_name in prop_list
+                    (from desired_name in desired_name_list
                      where s.AreEqual(desired_name, property_def.Name)
                      select desired_name)
                     )
