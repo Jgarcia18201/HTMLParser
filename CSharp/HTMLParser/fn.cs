@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace fn
 {
@@ -39,6 +40,66 @@ namespace fn
                     ret_list.Add(property_def.GetValue(ur_obj).ToString());
                 }
             }
+        }
+
+        public static string format_object(object ur_obj)
+        {
+            var property_list = ur_obj.GetType().GetProperties();
+            var output = new StringBuilder();
+            var first_row = true;
+            foreach (var property_def in
+                property_list
+                 )
+            {
+                if (first_row == false)
+                {
+                    output.Append("\t");
+                }
+                output.Append(property_def.Name);
+                first_row = false;
+            }
+            output.AppendLine();
+            first_row = true;
+            foreach (var property_def in property_list)
+            {
+                if (first_row == false)
+                {
+                    output.Append("\t");
+                }
+                output.Append(property_def.GetValue(ur_obj).ToString());
+                first_row = false;
+            }
+            return output.ToString();
+        }
+
+        public static string format_table(System.Collections.Generic.List<string> ret_list)
+        {
+            var output = new StringBuilder();
+            var first_row = true;
+            foreach (var property_def in 
+                (from property_def in ret_list.GetType().GetProperties()
+                 where property_def.DeclaringType == ret_list.GetType()
+                 select property_def)
+                 )
+            {
+                if (first_row == false) { 
+                output.Append("\t");
+                }
+                output.Append(property_def.Name);
+                first_row = false;
+            }
+            output.AppendLine();
+            first_row = true;
+            foreach (var value in ret_list)
+            {
+                if (first_row == false)
+                {
+                    output.Append("\t");
+                }
+                output.Append(value);
+                first_row = false;
+            }
+            return output.ToString();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using fn;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,18 +28,10 @@ namespace HTMLParser
             var notify = new System.Text.StringBuilder();
             var assembly_version = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
             var versionNumber = assembly_version.Major;
-            //foreach (var property_def in assembly_version.GetType().GetProperties())
-            //{
-            //    if (string.Equals(property_def.Name, "major", StringComparison.CurrentCultureIgnoreCase))
-            //    {
-            //        //notify.AppendLine($"{property_def.Name}: {property_def.GetValue(assembly_version, null).ToString()}");
-            //        versionNumber = property_def.GetValue(assembly_version, null).ToString();
-            //    }
-            //}
-            //this.txtResult.Text = $"{nameof(versionNumber)}: {versionNumber}"; 
             var ver_one = new ut.assembly_ver();
             ver_one.populate_one(assembly_version);
-            this.txtResult.Text = ver_one[1];
+            this.txtResult.Text = ver_one.format_table();
+            //this.txtResult.Text = rfl.format_object(assembly_version);
         }
     }
 }
