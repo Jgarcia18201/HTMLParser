@@ -35,7 +35,10 @@ namespace HTMLParser
             //        versionNumber = property_def.GetValue(assembly_version, null).ToString();
             //    }
             //}
-            this.txtResult.Text = $"{nameof(versionNumber)}: {versionNumber}";
+            //this.txtResult.Text = $"{nameof(versionNumber)}: {versionNumber}"; 
+            var ver_one = new ut.assembly_ver();
+            ver_one.populate_one(assembly_version);
+            this.txtResult.Text = ver_one[1];
         }
     }
 }
