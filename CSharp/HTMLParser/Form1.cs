@@ -31,6 +31,9 @@ namespace HTMLParser
             var ver_one = new ut.assembly_ver();
             ver_one.populate_one(assembly_version);
             this.txtResult.Text = ver_one.format_table();
+            var path = @"C:\HTMLParser\HTMLParser\Sample\new 1.txt";
+            this.txtResult.Text = System.IO.File.ReadAllText(path, System.Text.Encoding.UTF8).Replace(((char)13).ToString(),
+                string.Empty).Split((char)10).Length.ToString();
             //this.txtResult.Text = rfl.format_object(assembly_version);
         }
     }
