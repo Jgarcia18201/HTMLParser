@@ -76,14 +76,15 @@ namespace fn
         {
             var output = new StringBuilder();
             var first_row = true;
-            foreach (var property_def in 
+            foreach (var property_def in
                 (from property_def in ret_list.GetType().GetProperties()
                  where property_def.DeclaringType == ret_list.GetType()
                  select property_def)
                  )
             {
-                if (first_row == false) { 
-                output.Append("\t");
+                if (first_row == false)
+                {
+                    output.Append("\t");
                 }
                 output.Append(property_def.Name);
                 first_row = false;
@@ -101,5 +102,45 @@ namespace fn
             }
             return output.ToString();
         }
+
+    }
+    public class rfl<T>
+    {
+        public static string FormatObjectList(System.Collections.Generic.List<T> ret_list)
+        {
+            var output = new StringBuilder();
+            var first_column = true;
+            foreach (var property_def in typeof(T).GetProperties())
+            {
+                if (first_column == false)
+                {
+                    output.Append("\t");
+                }
+                output.Append(property_def.Name);
+                first_column = false;
+            }
+            output.AppendLine();
+            var first_row = true;
+            foreach (var row in ret_list)
+            {
+                if (first_row == false)
+                {
+                    output.AppendLine();
+                }
+                first_column = true;
+                foreach (var property_def in typeof(T).GetProperties())
+                {
+                    if (first_column == false)
+                    {
+                        output.Append("\t");
+                    }
+                    output.Append(property_def.GetValue(row));
+                    first_column = false;
+                }
+                first_row = false;
+            }
+            return output.ToString();
+        }
+
     }
 }
