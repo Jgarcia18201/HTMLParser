@@ -1,0 +1,4 @@
+Plan:
+- Ask user for filename
+- Read file line by line
+- Write out to new file w/ "Tiddly" replaced by "Card"

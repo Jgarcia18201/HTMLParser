@@ -1,0 +1,8 @@
+Test Case #1:
+- Open File -> Open Browser 
+file:///C:/HTMLParser/HTMLParser/Sample/tiddlywiki.html
+
+- Top text says 
+"Welcome to TiddlyWiki, a unique non-linear notebook for capturing, organising and sharing complex information"
+-- After file is rewritten, top text says:
+"Welcome to CardWiki, a unique non-linear notebook for capturing, organising and sharing complex information"

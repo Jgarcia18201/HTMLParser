@@ -134,7 +134,7 @@ namespace fn
                     {
                         output.Append("\t");
                     }
-                    output.Append(property_def.GetValue(row));
+                    output.Append($"\"{property_def.GetValue(row).ToString().Replace("\"", "\"\"")}\"");
                     first_column = false;
                 }
                 first_row = false;

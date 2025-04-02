@@ -1,4 +1,5 @@
-﻿using System;
+﻿using fn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,18 +20,15 @@ namespace HTMLParser
             this.Add(nrow);
             return nrow;
         }
-        public void ListFolders(System.Text.StringBuilder ret_validation)
+        public void ListFolders(System.Text.StringBuilder ret_validation,
+            string ur_path)
         {
             ret_validation.AppendLine("Folder List: ");
+            if (System.IO.Directory.Exists(ur_path))
             {
                 var nrow = this.addNewRow();
                 nrow.path = "abc";
                 nrow.name = "def";
-            }
-            {
-                var nrow = this.addNewRow();
-                nrow.path = "123";
-                nrow.name = "456";
             }
             ret_validation.AppendLine(fn.rfl<FolderEntry>.FormatObjectList(this));
         }

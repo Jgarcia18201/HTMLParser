@@ -1,0 +1,3 @@
+exe_location	logging_folder	log_file	log_path
+abc"def	C:\HTMLParser\HTMLParser\CSharp\HTMLParser\logs	logfile_2025-04-02_18-31-52.txt	C:\HTMLParser\HTMLParser\CSharp\HTMLParser\logs\logfile_2025-04-02_18-31-52.txt
+

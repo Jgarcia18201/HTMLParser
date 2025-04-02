@@ -19,15 +19,27 @@ namespace HTMLParser
         }
 
         private void Form1_Load(object sender, EventArgs e) 
-        {
+        {            
             this.TxtFilePath.Text = @"C:\HTMLParser\HTMLParser\Sample\new 1.txt";
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
             var validation = new System.Text.StringBuilder();
-            var file_list = new Folders();
-            file_list.ListFolders(validation);
+            var logOne = new ut.Logging();
+            logOne.PopulateOne(System.Reflection.Assembly.GetEntryAssembly());
+
+            /*
+table_caption_row	htmlparser.forminput
+filename	findtext	replacetext
+*.txt	tiddlywiky	cardwiki
+             */
+
+            //read the file the user provides
+            //decide what filename to write out
+            //write out new file from old file
+
+            validation.AppendLine("Done");
             this.txtResult.Text = validation.ToString();
 
             /*var notify = new System.Text.StringBuilder();
@@ -40,6 +52,8 @@ namespace HTMLParser
             this.txtResult.Text = System.IO.File.ReadAllText(path, System.Text.Encoding.UTF8).Replace(((char)13).ToString(),
                 string.Empty).Split((char)10).Length.ToString();
             //this.txtResult.Text = rfl.format_object(assembly_version);*/
+
+            //this.txtResult.Text = rfl.format_object(System.Reflection.Assembly.GetEntryAssembly());
         }
     }
 }
