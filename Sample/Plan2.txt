@@ -1,0 +1,14 @@
+Plan #2:
+HTMLParser form
+- [btnProcess_Click]
+
+- Find currently running program's folder
+- Get text from: TxtFilePath
+- Write text to: Parameters.txt in the currently running program's folder
+
+
+- [Form1_Load]
+
+- Find currently running program's folder
+- Get text from: Parameters.txt
+- Write text to: TxtFilePath 

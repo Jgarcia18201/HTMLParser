@@ -7,24 +7,7 @@ using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ut
-{
-    public class assembly_ver: System.Collections.Generic.List<string> 
-    {
-        public assembly_ver Major { get; set; }
-        public assembly_ver Minor { get; set; }
-        public assembly_ver Build { get; set; }
-        public assembly_ver Revision { get; set; }
-        public void populate_one(System.Version ur_version)
-        {
-            //this.major = ur_version.Major.ToString();
-            rfl.AssignStrings(this, ur_version);
-        }
-
-        public string format_table()
-        {
-            return rfl.format_table(this);
-        }
-    }
+{    
     public class Logging
         : List<Logging.Row>
     {
@@ -34,9 +17,10 @@ namespace ut
             public string logging_folder { get; set; }
             public string log_file { get; set; }
             public string log_path { get; set; }
+            public string parameters_folder { get; set; }
         }
 
-        public void AppendLine(string ur_txt)
+        public void LogText(string ur_txt)
         {
             foreach (var row in this)
             {
@@ -53,7 +37,9 @@ namespace ut
         {
             var nrow = this.addNewRow();
             nrow.exe_location = ur_assembly.Location;
-            nrow.logging_folder = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(nrow.exe_location).Replace(@"\bin\Debug", string.Empty),
+            nrow.parameters_folder = System.IO.Path.GetDirectoryName(nrow.exe_location).Replace(@"\bin\Debug", string.Empty);
+            nrow.logging_folder = System.IO.Path.Combine(
+                nrow.parameters_folder,
                 "logs");
             if (System.IO.Directory.Exists(nrow.logging_folder) == false)
             {
@@ -61,7 +47,6 @@ namespace ut
             }
             nrow.log_file = $"logfile_{System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.txt";
             nrow.log_path = System.IO.Path.Combine(nrow.logging_folder, nrow.log_file);
-            this.AppendLine(this.format_table());
         }        
 
         public string format_table()

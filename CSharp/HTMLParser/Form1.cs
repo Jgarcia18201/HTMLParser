@@ -19,8 +19,14 @@ namespace HTMLParser
         }
 
         private void Form1_Load(object sender, EventArgs e) 
-        {            
-            this.TxtFilePath.Text = @"C:\HTMLParser\HTMLParser\Sample\new 1.txt";
+        {
+            var logOne = new ut.Logging();
+            logOne.PopulateOne(System.Reflection.Assembly.GetEntryAssembly());
+
+            var parm_one = new tvParameters();
+            parm_one.PopulateFromFile(logOne);
+
+            parm_one.AssignFilePath(this.TxtFilePath);
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
@@ -29,31 +35,13 @@ namespace HTMLParser
             var logOne = new ut.Logging();
             logOne.PopulateOne(System.Reflection.Assembly.GetEntryAssembly());
 
-            /*
-table_caption_row	htmlparser.forminput
-filename	findtext	replacetext
-*.txt	tiddlywiky	cardwiki
-             */
+            var parm_one = new tvParameters();
+            parm_one.PopulateOne(this.TxtFilePath, logOne);
 
-            //read the file the user provides
-            //decide what filename to write out
-            //write out new file from old file
+            parm_one.WriteParameterFile(logOne);
 
             validation.AppendLine("Done");
             this.txtResult.Text = validation.ToString();
-
-            /*var notify = new System.Text.StringBuilder();
-            var assembly_version = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
-            var versionNumber = assembly_version.Major;
-            var ver_one = new ut.assembly_ver();
-            ver_one.populate_one(assembly_version);
-            this.txtResult.Text = ver_one.format_table();
-            var path = this.TxtFilePath.Text;
-            this.txtResult.Text = System.IO.File.ReadAllText(path, System.Text.Encoding.UTF8).Replace(((char)13).ToString(),
-                string.Empty).Split((char)10).Length.ToString();
-            //this.txtResult.Text = rfl.format_object(assembly_version);*/
-
-            //this.txtResult.Text = rfl.format_object(System.Reflection.Assembly.GetEntryAssembly());
         }
     }
 }

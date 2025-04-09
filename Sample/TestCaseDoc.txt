@@ -1,6 +1,24 @@
+ur_html_file = file:///C:/HTMLParser/HTMLParser/Sample/tiddlywiki.html
+ur_txt_file = C:\HTMLParser\HTMLParser\Sample\new 1.txt
+
+
 Test Case #1:
-- Open File -> Open Browser 
-file:///C:/HTMLParser/HTMLParser/Sample/tiddlywiki.html
+- Run HTMLParser
+- File Path = ur_txt_file
+- Click button Process -> overwrite textbox Result 
+- Result = 29 bytes
+
+
+Test Case #2:
+- Close program
+- Rerun program
+- File Path is already populated
+
+
+Test Case #3:
+- Open Browser -> 
+- Navigate to ur_html_file 
+
 
 - Top text says 
 "Welcome to TiddlyWiki, a unique non-linear notebook for capturing, organising and sharing complex information"
