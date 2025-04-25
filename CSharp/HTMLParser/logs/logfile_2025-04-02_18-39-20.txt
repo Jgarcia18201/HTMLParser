@@ -1,3 +1,0 @@
-exe_location	logging_folder	log_file	log_path
-"C:\HTMLParser\HTMLParser\CSharp\HTMLParser\bin\Debug\HTMLParser.exe"	"C:\HTMLParser\HTMLParser\CSharp\HTMLParser\logs"	"logfile_2025-04-02_18-39-20.txt"	"C:\HTMLParser\HTMLParser\CSharp\HTMLParser\logs\logfile_2025-04-02_18-39-20.txt"
-

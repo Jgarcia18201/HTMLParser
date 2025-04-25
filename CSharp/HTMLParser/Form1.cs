@@ -23,10 +23,7 @@ namespace HTMLParser
             var logOne = new ut.Logging();
             logOne.PopulateOne(System.Reflection.Assembly.GetEntryAssembly());
 
-            var parm_one = new tvParameters();
-            parm_one.PopulateFromFile(logOne);
-
-            parm_one.AssignFilePath(this.TxtFilePath);
+            Session.RestoreUserSelections(this.TxtFilePath, logOne);
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
@@ -35,10 +32,16 @@ namespace HTMLParser
             var logOne = new ut.Logging();
             logOne.PopulateOne(System.Reflection.Assembly.GetEntryAssembly());
 
-            var parm_one = new tvParameters();
-            parm_one.PopulateOne(this.TxtFilePath, logOne);
+            Session.SaveUserSelections(this.TxtFilePath, logOne);
 
-            parm_one.WriteParameterFile(logOne);
+            TextFileMaintenance.GetNextFileName();
+            TextFileMaintenance.ReadTextData();
+            TextFileMaintenance.ReplaceKeyWord();
+            TextFileMaintenance.WriteTextData();
+
+            System.IO.File.WriteAllText(@"C:\HTMLParser\HTMLParser\CSharp\HTMLParser\Parameters-02.txt", 
+                System.IO.File.ReadAllText(@"C:\HTMLParser\HTMLParser\CSharp\HTMLParser\Parameters.txt").Replace("b", "e")
+                );
 
             validation.AppendLine("Done");
             this.txtResult.Text = validation.ToString();
