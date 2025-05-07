@@ -8,6 +8,18 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HTMLParser
 {
+    public class HTMLData
+    {
+        public static void ReadFileData()
+        {
+
+        }
+
+        public static void OpenFileHandle()
+        {
+
+        }
+    }
     public class Session
     {
         public static void RestoreUserSelections(TextBox urFilePath, ut.Logging urLog)

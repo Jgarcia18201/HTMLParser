@@ -1,14 +1,25 @@
 Plan #2:
 HTMLParser form
-- [btnProcess_Click]
 
-- Find currently running program's folder
-- Get text from: TxtFilePath
-- Write text to: Parameters.txt in the currently running program's folder
+Session.RestoreUserSelections()
+- curr_folder = Logging Parameters Folder
+- save_file_path = Get text from: curr_folder\Parameters.txt
+- Write save_file_path text to: form.TxtFilePath 
+
+Session.SaveUserSelections()
+- curr_folder = Logging Parameters Folder
+- save_file_path = Get text from: form.TxtFilePath
+- Write save_file_path to: curr_folder\Parameters.txt
+
+[Form1_Load]
+- Call Session.RestoreUserSelections()
 
 
-- [Form1_Load]
+[btnProcess_Click]
 
-- Find currently running program's folder
-- Get text from: Parameters.txt
-- Write text to: TxtFilePath 
+- Call Session.SaveUserSelections()
+x- html_data = Read HTML file from save_file_path
+x- save_file_path2 = Make new HTML file named save_file_path + "2"
+x- curr_text = for each line in html_data
+	x- replaced_text = curr_text replacing keyword w/ "card"
+	x- write replaced_text to save_file_path2

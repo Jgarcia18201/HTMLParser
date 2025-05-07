@@ -1,26 +1,22 @@
-ur_html_file = file:///C:/HTMLParser/HTMLParser/Sample/tiddlywiki.html
-ur_txt_file = C:\HTMLParser\HTMLParser\Sample\new 1.txt
+Customer Problem: TiddlyWiki File has the word "Tiddly" and "Tiddler" in it
+Customer Solution: Make copy of file with "Tiddly" and "Tiddler" replaced with "Card"
 
+Example Input File:
+	ur_html_file = file:///C:/HTMLParser/HTMLParser/Sample/tiddlywiki.html 
+
+Example Process:
+	- Open HTML File using Firefox
+	- Top text of display page says 
+	"Welcome to TiddlyWiki, a unique non-linear notebook for capturing, organising and sharing complex information"
+	-- After file is rewritten, top text will say:
+	"Welcome to CardWiki, a unique non-linear notebook for capturing, organising and sharing complex information"
 
 Test Case #1:
 - Run HTMLParser
-- File Path = ur_txt_file
-- Click button Process -> overwrite textbox Result 
-- Result = 29 bytes
+- File Path = ur_html_file
+- Click button Process -> Write out new HTML file with keywords renamed
+- Result text box = Path for new HTML file
 
-
-Test Case #2:
-- Close program
-- Rerun program
-- File Path is already populated
-
-
-Test Case #3:
+Phase #2:
 - Open Browser -> 
 - Navigate to ur_html_file 
-
-
-- Top text says 
-"Welcome to TiddlyWiki, a unique non-linear notebook for capturing, organising and sharing complex information"
--- After file is rewritten, top text says:
-"Welcome to CardWiki, a unique non-linear notebook for capturing, organising and sharing complex information"

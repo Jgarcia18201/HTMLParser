@@ -38,9 +38,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnProcess = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -49,8 +49,8 @@
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -149,15 +149,6 @@
             this.panel7.Size = new System.Drawing.Size(533, 306);
             this.panel7.TabIndex = 3;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label2);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(533, 26);
-            this.panel8.TabIndex = 0;
-            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.txtResult);
@@ -176,6 +167,15 @@
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(533, 280);
             this.txtResult.TabIndex = 2;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label2);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(533, 26);
+            this.panel8.TabIndex = 0;
             // 
             // label2
             // 
@@ -206,10 +206,10 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }

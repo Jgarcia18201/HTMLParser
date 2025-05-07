@@ -1,3 +1,0 @@
-TxtFilePath
-"abc"
-
